@@ -16,7 +16,7 @@
     <form method="post" action="">
         <input type="number" name="num1" id="">
         <input type="number" name="num2" id="">
-        <select name="" id="">
+        <select name="operation" id="">
             <option value="addition">Addition</option>
             <option value="subtraction">Subtraction</option>
             <option value="multiplication">Multiplication</option>
@@ -26,7 +26,30 @@
     </form>
     <div id="result">
         <?php
-        if()
+        if($_SERVER["REQUEST_METHOD"] == "POST"){
+            $num1 = $_POST["num1"];
+            $num2 = $_POST["num2"];
+            $operation = $_POST["operation"];
+
+            switch ($operation){
+                case "addition":
+                    $result = $num1 + $num2;
+                    echo "Result:$result"; 
+                    break;
+                case "subtraction":
+                    $result = $num1 - $num2;
+                    echo "Result:$result"; 
+                    break;
+                case "multiplication":
+                    $result = $num1 * $num2;
+                    echo "Result:$result"; 
+                    break;
+                case "division":
+                    $result = $num1 / $num2;
+                    echo "Result:$result"; 
+                    break;
+            }
+        }
         
         ?>
 
